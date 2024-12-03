@@ -1,0 +1,76 @@
+#titulo{
+    padding: 100px 0px;
+    text-align: center;
+}
+.carrito{
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.items{
+    display: flex;
+    width: 25%;
+    position: relative;
+    margin: 30px 20px;
+}
+.img{
+    width: 50%;
+}
+.img img{
+    width: 100%;
+}
+
+
+
+.contenedor{
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+.boton{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px; 
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none ;
+    background-color: lightblue;
+}
+
+#formulario{
+    background-color: gray;
+    margin: 0 auto;
+    width: 50%;
+    padding: 30px;
+}
+.campo{
+    display: flex;
+    margin-bottom: 2rem;
+    gap: 2rem;
+}
+.campo__label{
+    flex: 0 0 9rem;
+    text-align: right;
+}
+.campo__field{
+    flex:1;
+    border: 1px solid var(--gris);
+}
+
+/* realTime */
+
+#main{
+    display: flex;
+    width: 90%;
+    margin: 100px auto;
+    flex-wrap: wrap;
+}
+
+.boton-delete{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

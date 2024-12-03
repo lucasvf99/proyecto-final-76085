@@ -1,97 +1,69 @@
-/**
-    
-
-            ------------- ACORDARSE ---------------    
-
-    on => para escuchar
-    emit => para enviar
-
-        ---------------------------------------------
- */
-
 import express from 'express'
-import handlebars from 'express-handlebars'
 import __dirname from './utils.js'
-//socket
-import {Server} from 'socket.io'
+//motor de plantilla + dinamismo
+import handlebars from 'express-handlebars'
+import {Server, Socket} from 'socket.io'
 //router
-import viewRouter from './routes/views.routes.js'
+import viewsRouter from './router/views.routes.js'
+//productmanager
+import ProductsManager from './services/productsManager.js'
 
 const app = express()
-const PORT = 9090
+const PORT = 8085
 
-//middlewares de confg
+//manager
+const productmanager = new ProductsManager()
+
+//config
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-
 //motor hdb
 app.engine('handlebars', handlebars.engine())
-
 //carpeta views
 app.set('views', __dirname + '/views')
-
 //indicamos motor
 app.set('view engine', 'handlebars')
 
+
 //public
-app.use(express.static(__dirname + '/public'))
+app.use(express.static( __dirname + '/public'))
 
 
-app.get('/ping', (req, res)=>{
-    res.render('index', {})
-})
+app.use('/products', viewsRouter)
 
 
-const httpServer = app.listen(PORT, ()=>{
-    console.log(`Servidor corriendo en el puerto ${PORT}`)
+
+
+const httpServer = app.listen(PORT, ()=> {
+    console.log(`Servidor corriendo en el puerto: ${PORT}`)
 })
 
 //instanciamos socket.io
+const socketServer = new Server(httpServer)   
 
-const socketServer = new Server(httpServer)
+let productos = []
 
-//array del ejercicio
+socketServer.on('connection', async socket => {
 
-const msjs = []
+   let dataProducts = await productmanager.getProducts()
+    productos = dataProducts.slice(0)
 
-//configuramos handshake
-//creamos canal de comunicacion hacia el cliente
-//para escuchar los msj tenemos on 
-//para emitir un msj emit
-socketServer.on('connection', socket => { //(key, data)
+    socket.emit('productos',  productos)
 
-    //TODO LO QUE SEA SOCKET !!
-
-    //recibir msj de public/index.js
-    socket.on("mensaje", data =>{
-        console.log("Recibido: " + data)
-        //envio mensaje al cliente
-        socketServer.emit("mensaje", "Hola soy el server")
+    socket.on('newproduct', async data => {
+        
+        let producto = await productmanager.createProduct(data)
+        productos.push(producto)
+        socket.emit('producto', productos)
     })
 
-    //broadcast
-    //el msg se propaga para todos los socket que esten conectados
-    //menos para el que lo envia
-    socket.broadcast.emit("broadcast", "Este evento es para todos los sockets, menos para el socket que lo envia")
-
-    //comunicacion en todas las direcciones
-    socketServer.emit("eventoParaTodos", "Evento para todos")
-
-   
-    /* EJERCICIO */
-    socket.on('mensajeI', data =>{
-        console.log('Recibido ' + data)
-        msjs.push({socketId: socket.id, message:data})
+    socket.on('id', async data => {
+        await productmanager.deleteProduct(data)
+        let indexProduct =  productos.findIndex(el => el.id === data)
+        productos.splice(indexProduct, 1)
+        socket.emit('productosDelete', productos)
     })
 
-    socketServer.emit('respuesta', {msjs} )
     
 
-
 })
-
-
-//llamo al router
-app.get('/message', viewRouter) 
-
-
