@@ -7,12 +7,28 @@ const productManager = new  ProductsManager()
 const router = Router()
 
 
-router.get('/:limit', async (req,res) => {
+router.get('/', async (req,res) => {
     try {   
-        const limit = req.params.limit ? parseInt(req.query.limit) : undefined
-        const products = await productManager.getProducts(limit)
+   
+        let limit = parseInt(req.query.limit ) || 5
+        let page = parseInt(req.query.page ) || 1
+        let category = req.query.category || ''
+        
 
-        res.json(products)
+        const products = await productManager.getAll(limit , page, category )
+
+        res.send( {
+            status:'succes', 
+            payload: products,
+            totalPages: products.totalPages,
+            prevPage: products.prevPage,
+            nextPage: products.nextPage,
+            page: products.page,
+            hasPrevPage: products.hasPrevPage,
+            hasNextPage: products.hasNextPage,
+            prevLink: products.prevLink,
+            nextLink: products.nextLink
+        })
         
     } catch (error) {
         console.log(error)
@@ -20,12 +36,13 @@ router.get('/:limit', async (req,res) => {
 })
 
 
+
 router.post('/', async (req,res) => {
+    let dataProduct = req.body
 
-    const dataProduct = req.body
-    const product = await productManager.createProduct(dataProduct)
+    let product = await productManager.create(dataProduct)
 
-    res.send({status:'succes', producto: product})
+    res.send(product)
 })
 
 
@@ -40,9 +57,9 @@ router.put('/:pid', async (req, res)=>{
 
 router.delete('/:pid', async (req, res) => {
     let productId = req.params.pid
-    let productDel = await productManager.deleteProduct(productId)
+    let productDel = await productManager.delete(productId)
 
-    res.send(productDel)
+    res.send('success')
 })
 
 export default router

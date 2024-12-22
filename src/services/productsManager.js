@@ -1,84 +1,85 @@
-import fs from 'fs/promises' // trbajamos con promesas
-import path from 'path'
-// id
-import {v4 as uuidv4} from 'uuid'
+//model 
+import productsModel from './models/products.js'
+//service
 
-//crear archivo 
+async function sortAsc   (filter) {
+    let sortAsc = await productsModel.aggregate([
+                {
+                    $match:{ category: filter}
+                },
 
-//buscar archivo                 ( carpeta ,   archivo    )
-const fileProducts = path.resolve('data', 'products.json') 
+                {
+                    $sort:{price: -1}
+                }
+            ])
+    // console.log(sortAsc)
+    return sortAsc
+}
+async function sortDes   (filter) {
+    let sortDes = await productsModel.aggregate([
+                {
+                    $match:{ category: filter}
+                },
+
+                {
+                    $sort:{price: 1}
+                }
+            ])
+    
+    // console.log(sortDes)
+    return sortDes
+}
+
 
 export default class ProductsManager {
 
-    constructor (){
-        this.products = []
-        this.init()
-    }
 
-    async init (){    
-        try{
-                    //( archivo    , descodificar)
-            const data = await fs.readFile(fileProducts, 'utf-8')
-            this.products = JSON.parse(data)//agregar data
+    //obt productos paginate
+    async getAll (limit, page, filter,sort){
+
+        let products  = await productsModel.paginate({}, {limit: limit, page: page, lean: true})
+        // console.log(products)
+        products.prevLink= products.hasPrevPage ? `http://localhost:8085/viewProducts?page=${products.prevPage}&limit=${limit}&category=${filter}` : ''
+        products.nextLink= products.hasNextPage ? `http://localhost:8085/viewProducts?page=${products.nextPage}&limit=${limit}&category=${filter}` : '' 
+        products.homeLink = `http://localhost:8085/viewProducts`
+        //category
+        let productsFilter 
+        if(filter){
+            productsFilter  = await productsModel.paginate({category: filter}, {limit: limit, page: page, lean: true}) 
+            productsFilter.prevLink= products.hasPrevPage ? `http://localhost:8085/viewProducts?page=${products.prevPage}&limit=${limit}&category=${filter}` : ''
+            productsFilter.nextLink= products.hasNextPage ? `http://localhost:8085/viewProducts?page=${products.nextPage}&limit=${limit}&category=${filter}` : '' 
+
+                 
+            productsFilter.homeLink = `http://localhost:8085/viewProducts`
+            console.log(productsFilter)
+            products = productsFilter
         }
-        catch(error){
-            console.log(error)
-            this.products = []
-        } 
-    }
+        if(sort== 'asc'){
+            productsFilter.docs = await sortAsc(filter)
+            productsFilter.hasNextPage= false
+        }else if (sort=='des'){
+             productsFilter.docs = await sortDes(filter)
+            productsFilter.hasNextPage= false
 
-    //refrescar archivos 
-    async saveFile (){
-        const dataJson = JSON.stringify(this.products, null, 2)
-        await fs.writeFile(fileProducts, dataJson)
-    }
-
-    //obt productos 
-    async getProducts (){
-            this.init()
-            return this.products
-    }
-    
-
-    //crear producto
-    async createProduct (product){
-        const newProduct =  {
-            id: uuidv4(),
-            ...product,
-            status: true
         }
-        this.products.push(newProduct)
 
+     
+        products.isValid = !(page <= 0 || page > products.totalPages)
+        console.log(products)
+        return products
+    }
+
+    async create (product){
+
+        let producto = await productsModel.create (product )
         
-        this.saveFile()
-
-        return newProduct
+        return producto
     }
 
-    async updateProduct (id, updateProduct){
-        let index = this.products.findIndex(el => el.id === id)
+    async delete (pId){
+        // let product = await productsModel.find({_id:pId})
+        await productsModel.deleteOne({_id:pId})
 
-        let nuevoProducto = {
-            id: this.products[index].id,
-            ...updateProduct,
-        }
-        console.log(nuevoProducto)
-
-        this.products[index] = nuevoProducto
-
-        this.saveFile()
-
-        return nuevoProducto
-    }
-
-    async deleteProduct (id) {
-        let index = this.products.findIndex(el => el.id === id)
-        console.log(index)
-        this.products.splice(index, 1)
-
-        this.saveFile()
-
-        return this.products
     }
 
 }

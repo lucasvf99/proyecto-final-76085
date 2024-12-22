@@ -1,22 +1,50 @@
+<a href={{this.homeLink}}>Home</a>
+  {{#if this.isValid}}
+
 <div>
     <h1 id="titulo">Estos son tus Productos </h1>
     <h2>Nombre: <span id="nombre"></span></h2>
 
+
+
     <div class="carrito">
-        {{#each products}}
+        {{#each this.docs}}
         <div class="items">
             <div class="img">
                 <img src= {{this.thumbnails}}></img>
             </div>
             <div>
                 <p>Nombre: {{this.title}}</p>
-                <p>Precio: {{this.price}}</p>
                 <p>Stock: {{this.stock}}</p>
+                <p>Description: {{this.description}}</p>
                 <p>Category: {{this.category}}</p>
+                <p>Precio: {{this.price}}</p>
+                <button>Agregar al Carrito</button>
             </div>
         </div>
         {{/each}}
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/socket.io/socket.io.js"></script>
+
+    {{#if this.hasPrevPage}}
+
+       <a href={{this.prevLink}}>Anterior</a> 
+
+    {{/if}}
+
+    &nbsp;
+    {{this.page}}
+    &nbsp;
+
+    {{#if this.hasNextPage}}
+
+    <a href={{this.nextLink}}>Siguiente</a>
+
+    {{/if}}
+
+{{else }}
+<h1>No hay productos que mostrar</h1>
+
+{{/if}}
+
+<script src="/js/realTime.js"></script>

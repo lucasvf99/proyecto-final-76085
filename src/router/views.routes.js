@@ -1,5 +1,5 @@
 import { Router } from "express";
-import ProductsManager from "../services/productsManager.js";
+import ProductsManager from '../services/productsManager.js';
 
 
 const router = Router()
@@ -8,17 +8,21 @@ const productsManager = new ProductsManager()
 router.get('/', async (req,res)=>{
 
     try {
-        await productsManager.init()
-        const products = await productsManager.getProducts()
-        res.render('home',{products:products}) // reenderiza la carpeta home.hanldebars
+
+        let limit = parseInt(req.query.limit ) || 5
+        let page = parseInt(req.query.page ) || 1
+        let category = req.query.category || ''
+        let sort = req.query.sort || ''
+        
+        const products = await productsManager.getAll(limit , page, category, sort )
+       
+        // console.log(products)
+        res.render('home', products)
     } catch (error) {
         console.log(error)
     }
 })
 
-router.get('/realtimeproducts', async (req,res)=>{
-    res.render('realTime')
-})
 
 export default router
 

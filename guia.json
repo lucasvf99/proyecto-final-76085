@@ -1,0 +1,15 @@
+[
+    {
+        "1": "crear la paginacion",
+
+        "2": "ponerle limites a la paginacion",
+
+        "3": "por medio de query filtrar por categoria",
+
+        "4": "sort clasificarlos desde el precio mas caro al mas barato",
+
+        "5": "el metodo get '/' status: succes, payload:{data}, prevPage, nextPage, page, hasPrevPage, hasNextPage,",
+        "5do": "prevLink, nextLink, "
+         
+    }
+]

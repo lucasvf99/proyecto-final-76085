@@ -1,0 +1,228 @@
+[
+
+
+  {
+    "title": "Smartphone X10",
+    "price": 599.99,
+    "description": "Teléfono inteligente con pantalla AMOLED y 128GB de almacenamiento.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.Oxk-JHV82fgVTiWxgRvsMwHaHa?rs=1&pid=ImgDetMain"],
+    "category": "tecnologia",
+    "stock": 20
+  },
+  {
+    "title": "Auriculares Bluetooth Pro",
+    "price": 79.99,
+    "description": "Auriculares inalámbricos con cancelación de ruido activa.",
+    "thumbnails": ["https://th.bing.com/th/id/R.a9bb40cb2eafae9f8283c3105b09b416?rik=hYaccKs29MK7tQ&pid=ImgRaw&r=0"],
+    "category": "tecnologia",
+    "stock": 50
+  },
+  {
+    "title": "Laptop Ultra 14\"",
+    "price": 899.99,
+    "description": "Laptop ligera con procesador Intel i7 y 16GB de RAM.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.m01pbZsfgSBGCu0pR_tIFgHaE8?rs=1&pid=ImgDetMain"],
+    "category": "tecnologia",
+    "stock": 15
+  },
+  {
+    "title": "Reloj Inteligente Fit",
+    "price": 129.99,
+    "description": "Reloj inteligente con monitor de actividad y frecuencia cardíaca.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.AUQHftZdNTjQ26Toz_KY-wHaHa?rs=1&pid=ImgDetMain"],
+    "category": "tecnologia",
+    "stock": 30
+  },
+  {
+    "title": "Cafetera Automática",
+    "price": 249.99,
+    "description": "Cafetera automática con opciones personalizadas de preparación.",
+    "thumbnails": ["https://th.bing.com/th/id/R.7ff06e6d818be7a453aa651d17cf6d95?rik=c%2bkNmKCyYQfNUA&pid=ImgRaw&r=0"],
+    "category": "hogar",
+    "stock": 25
+  },
+  {
+    "title": "Aspiradora Robot",
+    "price": 329.99,
+    "description": "Robot aspirador con programación inteligente.",
+    "thumbnails": ["https://electroluxpe.vtexassets.com/arquivos/ids/159941/Robot_Vacuum_ERB40_Perspective_Electrolux_1000x1000.jpg?v=638131254693100000"],
+    "category": "hogar",
+    "stock": 10
+  },
+  {
+    "title": "Juego de Sábanas Queen",
+    "price": 59.99,
+    "description": "Sábanas de algodón egipcio de alta calidad.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.tIx6yLMH2wocN6j4nEzwoAHaF3?rs=1&pid=ImgDetMain"],
+    "category": "hogar",
+    "stock": 40
+  },
+  {
+    "title": "Lámpara de Escritorio LED",
+    "price": 34.99,
+    "description": "Lámpara con luz ajustable y diseño minimalista.",
+    "thumbnails": ["https://cdn.homedepot.com.mx/productos/167223/167223-z.jpg"],
+    "category": "hogar",
+    "stock": 60
+  },
+  {
+    "title": "Cazadora de Cuero",
+    "price": 199.99,
+    "description": "Chaqueta de cuero genuino, estilo clásico.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.g1WxX8VRUnPHGI3GG41UBwHaLL?rs=1&pid=ImgDetMain"],
+    "category": "moda",
+    "stock": 15
+  },
+  {
+    "title": "Zapatillas Running",
+    "price": 89.99,
+    "description": "Calzado deportivo con amortiguación avanzada.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.MSeD2cSDBjqTHbTo54tEPwHaHa?rs=1&pid=ImgDetMain"],
+    "category": "moda",
+    "stock": 35
+  },
+  {
+    "title": "Bolso de Mano Elegante",
+    "price": 129.99,
+    "description": "Bolso de cuero con compartimentos múltiples.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.WpRYif08uYamQSohj3IpjgHaG7?rs=1&pid=ImgDetMain"],
+    "category": "moda",
+    "stock": 20
+  },
+  {
+    "title": "Reloj de Pulsera Clásico",
+    "price": 149.99,
+    "description": "Reloj de diseño clásico con correa de acero inoxidable.",
+    "thumbnails": ["https://th.bing.com/th/id/R.1809f09d62a95af84d97ad3b7935a254?rik=oEfkutqih2JCxg&pid=ImgRaw&r=0"],
+    "category": "moda",
+    "stock": 10
+  },
+  {
+    "title": "Bicicleta de Montaña",
+    "price": 499.99,
+    "description": "Bicicleta con marco de aluminio y suspensión delantera.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.oDnVA0zc_VtGnjqMTTtXxAHaFj?rs=1&pid=ImgDetMain"],
+    "category": "deportes",
+    "stock": 5
+  },
+  {
+    "title": "Pelota de Fútbol",
+    "price": 29.99,
+    "description": "Pelota oficial para partidos y entrenamientos.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.pkf4qzyOk1Fg9KP-RS65BgHaHa?rs=1&pid=ImgDetMain"],
+    "category": "deportes",
+    "stock": 100
+  },
+  {
+    "title": "Mancuernas Ajustables",
+    "price": 89.99,
+    "description": "Mancuernas con pesos ajustables, ideales para entrenamientos en casa.",
+    "thumbnails": ["https://th.bing.com/th/id/R.df81ff3bd9cba1679b9fb0bc3fc96bfe?rik=XTXWA%2fFpo2ooCg&pid=ImgRaw&r=0"],
+    "category": "deportes",
+    "stock": 30
+  },
+  {
+    "title": "Colchoneta de Yoga",
+    "price": 24.99,
+    "description": "Colchoneta antideslizante para yoga y pilates.",
+    "thumbnails": ["https://th.bing.com/th/id/R.aca0737dba798d37e073e0f1dd7e339b?rik=56G01ylEF%2fUXiQ&pid=ImgRaw&r=0"],
+    "category": "deportes",
+    "stock": 50
+  },
+  {
+    "title": "Televisor 4K Ultra HD",
+    "price": 749.99,
+    "description": "Televisor de 55 pulgadas con resolución 4K y HDR.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.oC2M_TKyh5D4JOBxGXm5WgHaE8?rs=1&pid=ImgDetMain"],
+    "category": "tecnologia",
+    "stock": 8
+  },
+  {
+    "title": "Tablet Pro 10\"",
+    "price": 349.99,
+    "description": "Tablet con pantalla de alta resolución y lápiz digital incluido.",
+    "thumbnails": ["https://i0.wp.com/reviews-tablet.com/wp-content/uploads/2016/04/tablet456.jpg"],
+    "category": "tecnologia",
+    "stock": 25
+  },
+  {
+    "title": "Freidora de Aire",
+    "price": 149.99,
+    "description": "Freidora sin aceite para preparar comidas saludables.",
+    "thumbnails": ["https://th.bing.com/th/id/R.aec105b5894333303d5a62a917fa2e8b?rik=RcqIImvIwyYo%2bA&pid=ImgRaw&r=0"],
+    "category": "hogar",
+    "stock": 35
+  },
+  {
+    "title": "Set de Cuchillos Profesionales",
+    "price": 89.99,
+    "description": "Juego de cuchillos de acero inoxidable con soporte incluido.",
+    "thumbnails": ["https://th.bing.com/th/id/R.ddcdb75645eda4c0edc557f5b47863d7?rik=TrT1L4EJguJmNw&pid=ImgRaw&r=0"],
+    "category": "hogar",
+    "stock": 45
+  },
+  {
+    "title": "Chaqueta Deportiva",
+    "price": 59.99,
+    "description": "Chaqueta impermeable y transpirable para actividades al aire libre.",
+    "thumbnails": ["https://res.cloudinary.com/futbol-factory/image/upload/c_pad,f_auto,h_2000,w_1600/v1/products/188904_1.jpg"],
+    "category": "moda",
+    "stock": 18
+  },
+  {
+    "title": "Mochila Casual",
+    "price": 49.99,
+    "description": "Mochila de diseño moderno y múltiples compartimentos.",
+    "thumbnails": ["https://www.elpalaciodehierro.com/on/demandware.static/-/Sites-palacio-master-catalog/default/dw51a81921/images/40441791/large/40441791_x1.jpg"],
+    "category": "moda",
+    "stock": 22
+  },
+  {
+    "title": "Guantes de Boxeo",
+    "price": 39.99,
+    "description": "Guantes de alta calidad para entrenamientos intensos.",
+    "thumbnails": ["https://hbstoreperu.com/wp-content/uploads/2020/12/17428716.jpg"],
+    "category": "deportes",
+    "stock": 12
+  },
+  {
+    "title": "Raqueta de Tenis",
+    "price": 79.99,
+    "description": "Raqueta ligera y resistente para jugadores avanzados.",
+    "thumbnails": ["https://th.bing.com/th/id/R.dec178febf6b36cdaef3c643cca4cd05?rik=VTQnFm1aa5HlFQ&pid=ImgRaw&r=0"],
+    "category": "deportes",
+    "stock": 15
+  },
+  {
+    "title": "Monitor Gaming",
+    "price": 279.99,
+    "description": "Monitor de 27 pulgadas con alta tasa de refresco.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.c647o9T9wODr0De-Mms1pAHaE6?rs=1&pid=ImgDetMain"],
+    "category": "Tecnología",
+    "stock": 12
+  },
+  {
+    "title": "Sillón Recliner",
+    "price": 399.99,
+    "description": "Sillón reclinable con soporte lumbar ajustable.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.-kSFlSQdK_vXT9WCmXMI9QHaHa?rs=1&pid=ImgDetMain"],
+    "category": "hogar",
+    "stock": 7
+  },
+  {
+    "title": "Chaleco Acolchado",
+    "price": 39.99,
+    "description": "Chaleco ligero y cálido para invierno.",
+    "thumbnails": ["https://th.bing.com/th/id/OIP.iFCE_J9h8fzRoHCOfn46AwHaId?rs=1&pid=ImgDetMain"],
+    "category": "moda",
+    "stock": 27
+  },
+  {
+    "title": "Set de Pesas Rusas",
+    "price": 69.99,
+    "description": "Pesas rusas de distintos pesos para entrenamientos de fuerza.",
+    "thumbnails": ["https://cdn1.coppel.com/images/catalog/mkp/857/3000/8571486-1.jpg"],
+    "category": "deportes",
+    "stock": 18
+  }
+]
